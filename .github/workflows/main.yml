@@ -20,6 +20,7 @@ jobs:
           cd /home/fluidity/tests/square-convection-parallel-trivial
           make input
           ls -la
+          export PYTHONPATH=/home/fluidity/python
           mpiexec -n 2 ../../bin/flredecomp -i 1 -o 2 -v -l square-convection square-convection_flredecomp
           ls -la
           cat flredecomp.err-0

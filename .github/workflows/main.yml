@@ -24,11 +24,11 @@ jobs:
           mpiexec -n 2 ../../bin/flredecomp -i 1 -o 2 -v -l square-convection square-convection_flredecomp
           ls -la
           cat flredecomp.err-0
-          mpiexec -n 2 ../../bin/fluidity -v2 -l square-convection_flredecomp.flml
+          mpiexec -n 2 ../../bin/fluidity -v2 -l square-convection_flredecomp.flml || true
           ls -la
           cat *err-?
           cd /home/fluidity
-          bin/testharness -f square-convection-parallel-trivial.xml
+          bin/testharness -f square-convection-parallel-trivial.xml || true
           cd /home/fluidity/tests/square-convection-parallel-trivial
           ls -la
           cat *err-?

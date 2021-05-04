@@ -22,5 +22,7 @@ jobs:
           ls -la
           mpiexec -n 2 ../../bin/flredecomp -i 1 -o 2 -v -l square-convection square-convection_flredecomp
           ls -la
+          cat *err-?
           mpiexec -n 2 ../../bin/fluidity -v2 -l square-convection_flredecomp.flml
           ls -la
+          cat *err-?

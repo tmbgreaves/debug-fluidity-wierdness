@@ -17,4 +17,5 @@ jobs:
     steps:
       - name: Run a one-line script
         run: |
+          cd /home/fluidity
           bin/testharness -f square_convection_parallel_trivial.xml

@@ -27,3 +27,8 @@ jobs:
           mpiexec -n 2 ../../bin/fluidity -v2 -l square-convection_flredecomp.flml
           ls -la
           cat *err-?
+          cd /home/fluidity
+          bin/testharness -f square-convection-parallel-trivial.xml
+          cd /home/fluidity/tests/square-convection-parallel-trivial
+          ls -la
+          cat *err-?

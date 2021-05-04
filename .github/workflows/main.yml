@@ -17,6 +17,11 @@ jobs:
     steps:
       - name: Test on github runner
         run: |
+          cd /home/fluidity
+          bin/testharness -f square-convection-parallel-trivial.xml || true
+          cd /home/fluidity/tests/square-convection-parallel-trivial
+          ls -la
+          cat *err-?
           cd /home/fluidity/tests/square-convection-parallel-trivial
           make input
           ls -la

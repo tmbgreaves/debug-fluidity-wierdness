@@ -9,13 +9,24 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  github:
     runs-on: ubuntu-latest
     container:
       image: fluidity/actions:focal-9c94ec79a1e4dcc68f1c82b481b36571f9f11d1d
 
     steps:
-      - name: Run a one-line script
+      - name: Test on github runner
         run: |
           cd /home/fluidity
-          bin/testharness -f square_convection_parallel_trivial.xml
+          bin/testharness -f square-convection-parallel-trivial.xml
+
+  selfhosted:
+    runs-on: self-hosted
+    container:
+      image: fluidity/actions:focal-9c94ec79a1e4dcc68f1c82b481b36571f9f11d1d
+
+    steps:
+      - name: Test on self-hosted runner
+        run: |
+          cd /home/fluidity
+          bin/testharness -f square-convection-parallel-trivial.xml

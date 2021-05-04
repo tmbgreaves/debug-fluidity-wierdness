@@ -1,0 +1,20 @@
+name: DEBUG
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: fluidity/actions:focal-9c94ec79a1e4dcc68f1c82b481b36571f9f11d1d
+
+    steps:
+      - name: Run a one-line script
+        run: |
+          bin/testharness -f square_convection_parallel_trivial.xml
